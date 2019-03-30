@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: my_resume_bg
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/resume?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+server:
+  port: 8081
