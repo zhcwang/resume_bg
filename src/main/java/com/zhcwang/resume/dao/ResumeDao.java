@@ -19,17 +19,17 @@ public interface ResumeDao {
             @Result(property = "description", column = "description"),
             @Result(property = "state", column = "state")
     })
-    @Select("SELECT name,phone,wanted,education,birth,description,state FROM RESUME_BASEINFO")
+    @Select("SELECT name,phone,wanted,education,birth,description,state FROM resume_baseinfo")
     BaseInfo getBaseInfo();
 
 
-    @Select("SELECT `from`,`to`,workspace,position FROM RESUME_EXPERIENCE")
+    @Select("SELECT `from`,`to`,workspace,position FROM resume_experience")
     List<Experience> getExperience();
 
-    @Select("SELECT `name`,qualification FROM RESUME_SKILL")
+    @Select("SELECT `name`,qualification FROM resume_skill")
     List<Skill> getSkill();
 
-    @Select("SELECT name FROM RESUME_PROJECT_RES WHERE project_id = #{projectId}")
+    @Select("SELECT name FROM resume_project_res WHERE project_id = #{projectId}")
     List<String> getResbonsiblilityByProjectId(String projectId);
 
     @Results({
@@ -37,7 +37,7 @@ public interface ResumeDao {
             @Result(property = "resbonsiblility", column = "id",
                     many = @Many(select = "com.zhcwang.resume.dao.ResumeDao.getResbonsiblilityByProjectId"))
     })
-    @Select("SELECT id,`name`,`description`,`content` FROM RESUME_PROJECT")
+    @Select("SELECT id,`name`,`description`,`content` FROM resume_project")
     List<Project> getProject();
 
 

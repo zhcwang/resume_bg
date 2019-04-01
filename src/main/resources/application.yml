@@ -3,8 +3,25 @@ spring:
     name: my_resume_bg
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/resume?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://66.98.120.86:3306/resume?useSSL=false&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: root
 server:
   port: 8081
+management:
+  endpoints:
+    web:
+      exposure:
+        include:  '*'
+  metrics:
+    tags:
+       application: ${spring.application.name}
+  endpoint:
+    prometheus:
+       enabled: true
+    health:
+      show-details: always
+
+
+
+
